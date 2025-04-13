@@ -1,0 +1,125 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[T1]{fontenc} 
+\usepackage{times} 
+\usepackage[swedish,english]{babel} 
+\usepackage[utf8]{inputenc} 
+\usepackage{dtk-logos} 
+\usepackage{wallpaper} 
+\usepackage[absolute]{textpos} 
+\usepackage[top=2cm, bottom=2.5cm, left=3cm, right=3cm]{geometry} 
+\usepackage[parfill]{parskip} 
+\usepackage{csquotes} 
+\usepackage{float} 
+
+\usepackage{sectsty} 
+\sectionfont{\fontsize{14}{15}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+\subsubsectionfont{\fontsize{12}{15}\selectfont}
+
+\newsavebox{\mybox}
+\newlength{\mydepth}
+\newlength{\myheight}
+
+\newenvironment{sidebar}%
+{\begin{lrbox}{\mybox}\begin{minipage}{\textwidth}}%
+{\end{minipage}\end{lrbox}%
+ \settodepth{\mydepth}{\usebox{\mybox}}%
+ \settoheight{\myheight}{\usebox{\mybox}}%
+ \addtolength{\myheight}{\mydepth}%
+ \noindent\makebox[0pt]{\hspace{-20pt}\rule[-\mydepth]{1pt}{\myheight}}%
+ \usebox{\mybox}}
+
+\newcommand\BackgroundPic{
+    \put(-2,-3){
+    \includegraphics[keepaspectratio,scale=1.5]{img/su_olivier1.png}
+    }
+}
+\newcommand\BackgroundPicLogo{
+    \put(15,710){
+    \includegraphics[keepaspectratio,scale=0.2]{img/logo.png}
+    }
+}
+
+\title{
+\vspace{-8cm}
+\begin{sidebar}
+    \vspace{10cm}
+    \normalfont \normalsize
+    \huge Concept Note\\ 
+    \vspace{-1.3cm}
+\end{sidebar}
+\vspace{3cm}
+\begin{flushleft}
+    \huge Group 36
+\end{flushleft}
+\null
+\vfill
+\begin{textblock}{5}(10,13)
+\begin{flushright}
+\begin{minipage}{\textwidth}
+\begin{flushleft} \large
+\emph{Authors:} Chew Jing Xiang, Yuhan Xie, Zhongxi Huang\\
+\emph{Semester:} Spring 2025\\
+\emph{Course:} Cyber Forensics\\
+\emph{Course code:} CYFO\\
+\end{flushleft}
+\end{minipage}
+\end{flushright}
+\end{textblock}
+}
+
+\date{}
+\author{}
+\begin{document}
+
+\pagenumbering{gobble}
+\newgeometry{left=5cm}
+\AddToShipoutPicture*{\BackgroundPic}
+\AddToShipoutPicture*{\BackgroundPicLogo}
+\maketitle
+\restoregeometry
+\clearpage
+
+\pagenumbering{roman}
+\newpage
+
+\pagenumbering{gobble}
+\tableofcontents 
+\newpage
+\pagenumbering{arabic}
+
+\section{Introduction}
+The Internet of Things (IoT) is redefining digital infrastructures by interconnecting billions of physical devices, vehicles, and home appliances. However, this advancement comes with serious security and privacy concerns. IoT devices often operate with limited security mechanisms and lack update mechanisms, making them vulnerable to exploitation \cite{Conti2018, Sivaraman2015}. These vulnerabilities are further compounded during forensic investigations, where ephemeral, decentralized, and heterogeneous data challenge traditional approaches \cite{Zawoad2015}.
+
+This project explores how digital forensic frameworks can adapt to the unique constraints of the IoT landscape, with a particular emphasis on maintaining data integrity, chain of custody, and user privacy.
+
+\section{Methods}
+This study will adopt a structured literature review methodology using reputable academic databases and digital forensic journals. The process includes:
+\begin{itemize}
+    \item Reviewing cases of IoT security breaches such as the Mirai botnet and smart healthcare device hacks.
+    \item Evaluating existing forensic tools and their compatibility with IoT ecosystems.
+    \item Analyzing frameworks proposed in academic literature, including blockchain-based logging \cite{Dorri2017}, secure logging-as-a-service \cite{Zawoad2015}, and AI-assisted anomaly detection \cite{Rathore2017}.
+\end{itemize}
+
+\section{Results}
+Expected outcomes:
+\begin{itemize}
+    \item A privacy-aware forensic investigation model tailored for IoT.
+    \item Identification of key gaps in the forensic readiness of current IoT frameworks.
+    \item A comparative evaluation of IoT logging and auditing tools.
+\end{itemize}
+This will provide insights for developing scalable, secure, and forensically-sound IoT systems.
+
+\section{Discussion}
+Key areas of discussion include:
+\begin{itemize}
+    \item Balancing legal admissibility and user privacy in IoT data.
+    \item The forensic implications of emerging technologies like edge computing and AI in IoT.
+    \item Recommendations for integrating forensic readiness into IoT design and regulation.
+\end{itemize}
+The findings will help shape the next generation of forensic tools and legal frameworks for cybercrime in the era of ubiquitous computing.
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref.bib}
+
+\end{document}
